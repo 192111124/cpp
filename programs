@@ -1,0 +1,832 @@
+#include <iostream>(vector)
+class Vector {
+private:
+    int size;
+    int* array;
+    friend void readVector(Vector&);
+    friend void printVector(const Vector&);
+public:
+    Vector(int s) : size(s), array(new int[s]) {}
+    ~Vector() {
+        delete[] array;}};
+void readVector(Vector& vec) {
+    printf("Enter %d elements for the vector:\n", vec.size);
+    for (int i = 0; i < vec.size; ++i) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &vec.array[i]);
+    }}
+void printVector(const Vector& vec) {
+    printf("Vector elements: ");
+    for (int i = 0; i < vec.size; ++i) {
+        printf("%d ", vec.array[i]);}
+    printf("\n");}
+int main() {
+    int vectorSize;
+    printf("Enter the size of the vector: ");
+    scanf("%d", &vectorSize);
+    Vector myVector(vectorSize);
+    readVector(myVector);
+    printVector(myVector);
+    return 0;}
+#include <windows.h>(employee)
+#include <iostream>
+using namespace std;
+class employee{
+	int   emp_number;
+	char  emp_name[20];
+	float emp_basic;
+	float emp_da;
+	float emp_it;
+	float emp_net_sal;
+	public:
+		void get_emp_details();
+		float find_net_salary(float basic, float da, float it);
+		void show_emp_details();};
+void employee :: get_emp_details(){
+	cout<<"\nEnter employee number: ";
+	cin>>emp_number;
+	cout<<"\nEnter employee name: ";
+	cin>>emp_name;
+	cout<<"\nEnter employee basic: ";
+	cin>>emp_basic;
+	cout<<"\nEnter employee DA: ";
+	cin>>emp_da;
+	cout<<"\nEnter employee IT: ";
+	cin>>emp_it;}
+float employee :: find_net_salary(float basic, float da, float it)
+{return (basic+da)-it;}
+void employee :: show_emp_details(){
+	cout<<"\nEmployee Name      :  "<<emp_name;
+	cout<<"\nEmployee number    :  "<<emp_number;
+	cout<<"\nBasic salary       :  "<<emp_basic;
+	cout<<"\nEmployee DA        :  "<<emp_da;
+	cout<<"\nIncome Tax         :  "<<emp_it;
+	cout<<"\nNet Salary         :  "<<find_net_salary(emp_basic, emp_da, emp_it);}
+int main(){
+    employee emp;
+    emp.get_emp_details();
+    emp.show_emp_details();
+    return 0;}
+#include <iostream>(decimal binary and octal)
+using namespace std;
+void convertAndPrint(int num, int base, const char* message) {
+    cout << message;
+    if (num == 0) {
+        cout << "0\n";
+        return; }
+    int result[32]; 
+    int index = 0;
+    while (num > 0) {
+        result[index++] = num % base;
+        num /= base;}
+    for (int i = index - 1; i >= 0; --i) {
+        cout << result[i]; }
+    cout << endl;}
+int main() {
+    int decimalNumber;
+    cout << "Enter a decimal number: ";
+    cin >> decimalNumber;
+    convertAndPrint(decimalNumber, 2, "Binary Equivalent: ");
+    convertAndPrint(decimalNumber, 8, "Octal Equivalent: ");
+    return 0;
+}
+#include<iostream>(matrix add)                                                                               
+using namespace std; 
+int main ()
+{ int m, n, p, q, i, j, A[5][5], B[5][5], C[5][5];
+    cout << "Enter rows and column of matrix A : "; cin >> m >> n;
+    cout << "Enter rows and column of matrix B : ";cin >> p >> q; 
+    if ((m != p) && (n != q)) {
+        cout << "Matrices cannot be added!";
+        exit(0); }	
+    cout << "Enter elements of matrix A : ";
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++) cin >> A[i][j];
+	cout << "Enter elements of matrix B : ";
+    for (i = 0; i < p; i++)
+        for (j = 0; j < q; j++)
+            cin >> B[i][j];		
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            C[i][j] = A[i][j] + B[i][j]; cout << "Sum of matrices\n";
+    for (i = 0; i < m; i++)
+    {    for (j = 0; j < n; j++)
+            cout << C[i][j] << "  ";	cout << "\n";   }}
+#include <iostream>(matrix mult)  
+using namespace std;  
+int main()  {  
+int a[10][10],b[10][10],mul[10][10],r,c,i,j,k;    
+cout<<"enter the number of row=";    cin>>r;    
+cout<<"enter the number of column=";    cin>>c;    
+cout<<"enter the first matrix element=\n";    
+for(i=0;i<r;i++)  {    
+for(j=0;j<c;j++)    {    
+cin>>a[i][j];  }    }    
+cout<<"enter the second matrix element=\n";    for(i=0;i<r;i++)    {    
+for(j=0;j<c;j++)    {    
+cin>>b[i][j];    }    }    
+cout<<"multiply of the matrix=\n";    for(i=0;i<r;i++)    {    
+for(j=0;j<c;j++)    {    
+mul[i][j]=0;    
+for(k=0;k<c;k++)    {    
+mul[i][j]+=a[i][k]*b[k][j];    }    }    }       
+for(i=0;i<r;i++)    
+{    for(j=0;j<c;j++)    {    
+cout<<mul[i][j]<<" ";    }    
+cout<<"\n";    }  }  
+
+#include <iostream>(duplicate array)
+#include <algorithm>
+using namespace std;
+int main() {
+    int arr[] = {15, 14, 25, 14, 32, 14, 31};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    sort(arr, arr + n);
+    int j = 0;
+    for (int i = 1; i < n; i++) {if (arr[i] != arr[j]) {
+            j++;
+            arr[j] = arr[i];}}
+    for (int i = 0; i <= j; i++) {
+        cout << arr[i] << " "; }}
+#include<iostream>
+using namespace std;
+int area(int);
+int area(int,int);
+float area(float);
+float area(float,float);
+int main()
+{ int s,l,b;
+        float r,bs,ht;
+        cout<<"Enter side of a square:"; cin>>s;
+        cout<<"Enter length and breadth of rectangle:"; cin>>l>>b;
+        cout<<"Enter radius of circle:";cin>>r;
+        cout<<"Enter base and height of triangle:";cin>>bs>>ht;
+        cout<<"Area of square is"<<area(s);
+        cout<<"\nArea of rectangle is "<<area(l,b);
+    cout<<"\nArea of circle is "<<area(r);
+    cout<<"\nArea of triangle is "<<area(bs,ht);}
+int area(int s)
+{return(s*s);
+}int area(int l,int b)
+{ return(l*b);}float area(float r)
+{ return(3.14*r*r);}
+float area(float bs,float ht){
+   return((bs*ht)/2);}
+#include<iostream>(net salary and tax)
+using namespace std;
+class salary {
+public:
+    int bs, net, hra, oa, alla, gp;
+    salary() {
+        cout << "Enter basic salary: ";cin >> bs;
+        cout << "Enter HRA: ";cin >> hra;
+        cout << "Enter other allowance: ";cin >> oa;
+        cout << "Enter all allowance for net salary: ";cin >> alla;
+        net = bs + hra + oa + alla;
+        cout << "Your net salary is " << net << "\n";gp = bs + hra + oa; }};
+class deduction {
+public:
+    void deduction1() {
+        cout << "\nIncome tax calculation. Enter your details below.\n";  } };
+class incometax : public salary {
+public:
+    incometax() {
+        if (net > 200000 and net < 500000) {
+            cout << "Your income tax is " << net * 0.5;
+        } else if (net > 500000 and net < 700000) {
+            cout << "Your income tax is " << (net * 0.10) + 12500;
+        } else if (net > 700000 and net < 1000000) {
+            cout << "Your income tax is " << (net * 0.15) + 37500;
+        } else if (net > 1000000) {
+            cout << "Your income tax is " << (net * 0.20) + 75000;
+        } else {
+            cout << "No income tax";}}};
+int main() {
+    salary p1;
+    deduction p2;
+    p2.deduction1();
+    incometax p3;
+}
+#include<iostream>(maintaing bank account)
+using namespace std;
+int bal = 0;
+class account {
+public:
+    string name, acc, acty;
+    void getdet() {
+        cout << "\nEnter your name: ";
+        cin >> name;
+        cout << "Enter your account number: ";
+        cin >> acc;
+        cout << "Enter your account type: ";
+        cin >> acty;
+    }void displaya() {
+        cout << "\nName: " << name;
+        cout << "\nAccount Number: " << acc;
+        cout << "\nAccount Type: " << acty;
+    }};
+class withdraw {
+public:
+    int amt;
+    void getwith() {
+        cout << "\nEnter the withdrawal amount: ";
+        cin >> amt;
+    } void displayb() {
+        if (amt <= bal) {
+            cout << "\nBalance: " << bal - amt;
+            cout << "\nTake your cash!";
+        } else {
+            cout << "\nInsufficient balance!";
+        }}};
+class savings : public account, public withdraw {
+public:
+    int amt2;
+    void getdep() {
+        cout << "\nEnter the deposit amount: ";
+        cin >> amt2;}
+    void displayc() {
+        if (amt2 > 0) {
+            cout << "\nBalance: " << bal + amt2;
+            cout << "\nDeposited successfully!";
+        } else {
+            cout << "\nInvalid amount!"; } }};
+int main() {
+    int n;
+    savings s;
+    s.getdet();
+    cout << "\n1. Withdraw \n2. Deposit \nEnter your choice: ";
+    cin >> n;
+    if (n == 1) {
+        s.getwith();
+        s.displayb();
+    } else if (n == 2) {
+        s.getdep();
+        s.displaya();
+        s.displayc(); }}
+#include<iostream>(grade of 3 student) 
+ using namespace std; 
+ class name { 
+ 	public: 
+  string name;   void getname() { 
+ 	 	 	cout<<"\nenter the name : "; 
+ 	 	 	cin>>name; 	} 
+ 	 	void displaya() { 
+ 	 	 	cout<<"\nname : "<<name; 	} 
+}; class roll { 
+ 	public:  	 	string r; 
+ 	 	void getrn() 
+ 	 	{ 
+ 	 	 	cout<<"\nenter the roll no : "; 
+ 	 	 	cin>>r; 	} 
+ 	 	void displayb() { 
+ 	 	 	cout<<"\nroll no : "<<r; 	} }; 
+class grade:public name,public roll  { 
+ 	public:  	char g; 
+ 	void getgra() 	{ 
+ 	 	cout<<"\nenter the grade : ";  	 	cin>>g; } 
+ 	void displayc() { 
+	 	cout<<"\ngrade : "<<g; } }; 
+int main() { 
+ 	int n,i;  	grade d[10]; 
+ 	cout<<"\nenter the no of students : ";  	cin>>n; 
+ 	for(i=0;i<n;i++){  	 	d[i].getname();  	 	d[i].getrn();  	 	d[i].getgra(); 	} 
+ 	for(i=0;i<n;i++){  	 	d[i].displaya();  	 	d[i].displayb();  	 	d[i].displayc(); 	}  } 
+
+#include<iostream> (persons inside a bank)
+using namespace std; 
+class counter 
+{ 	public: 
+	 	 	int count; 
+	 	 	counter() { 
+	 	 	 	count=0; } 
+	 	 	void operator++() { 
+	 	 	 	count++; } 
+	 	 	void operator--() { 
+	 	 	 	count--; 	} 
+	 	 	int display() { 
+	 	 	 	return count; 	} }; 
+int main() { 
+	 	counter c1; 
+	 	cout<<"\ninitial number of people => "<<c1.display(); ++c1; 	++c1; 	++c1;  	++c1; 
+	 	cout<<"\npresent number => "<<c1.display(); --c1; 
+	 	cout<<"\nsome of them leave => "<<c1.display(); } 
+#include<iostream>(piggie bank)
+using namespace std;
+class AddAmount {
+private:
+    int amount;
+public:
+    AddAmount() {
+        amount = 500; }
+    AddAmount(int additionalAmount) {
+        amount = 500 + additionalAmount;}
+    void displayAmount() {
+        cout << "Final amount in the Piggie Bank: Rs." << amount << endl; }};
+int main() {
+    AddAmount piggyBank1;
+    piggyBank1.displayAmount();
+    AddAmount piggyBank2(300);
+    piggyBank2.displayAmount();}
+#include <iostream> (IT SHOWS IN TR pattern)
+using namespace std; 
+int main() 
+{     int r, c = 1; 
+     cout << "Enter number of rows: "; 
+    cin >> r; 
+     for(int i = 0; i < r; i++) { 
+        for(int j= r; j >= i; j--)   cout <<"  "; 
+        for(int k = 0; k <= i; k++) { 
+            if (k == 0 || i == 0)    c = 1;  
+			  else                
+			   c = c*(i-k+1)/k;   cout << c << "   ";   } 
+        cout << endl;  } } 
+#include<iostream> (n perfect num)
+using namespace std;
+ int main() 
+{ 
+ 	int n,i,j,k,c,n1=0;  	cout<<"\nenter the limit : ";  	cin>>n; 
+ 	cout<<"\nperfect numbers : \n";  	for(i=1;i<10000;i++){ 
+	 	 	c=0; 
+	 	 	for(j=1;j<i;j++){ 
+ 	 	 	if(i%j==0){  	 
+			   	 	 	c+=j; } 	} 
+ 	 	if(i==c){  	 	 	cout<<i<<"\n"; 
+	 	 	 	n1++; 
+ 	 	 	if(n1==n)  	 	 	break; 
+	 	 	} } } 
+#include<iostream> (composite)
+using namespace std; 
+int main() 
+{ 
+ 	int start,end,i,j;  	cout<<"\nENTER THE STARTING => "; 
+ 	cin>>start; 
+ 	cout<<"\nENTER THE ENDING => "; 
+ 	cin>>end; 
+ 	for(i=start+1;i<end;i++) 	{ 
+ 	 int count=0;  	 for(j=1;j<=i;j++) { 
+ 	  	if(i%j==0)  	  	count++; } 
+ 	 if(count==2)  	 continue; 
+ 	 else  { 
+ 	  	cout<<i<<"\n"; } } } 
+#include<iostream> using namespace std;(POS AND NEG)
+int main() 
+{ 
+ 	float n,neg=0,pos=0,n1=0,p1=0;  	cout<<"\nenter -1 to exit !!!";  	while(n!=-1){  	 	cout<<"\nenter the num : "; 
+ 	 	cin>>n; 
+ 	 	if(n<-1){ 
+ 	 	 	neg+=n; 
+ 	 	 	n1++; 	} 
+ 	 	else if(n>0){ 
+ 	 	 	pos+=n; 
+p1++;  	 	} } 
+ 	cout<<"\npositive average : "<<pos/p1;  	cout<<"\nnegative average : "<<neg/n1; } 
+
+#include<iostream> (MEAN MEDIAN MODE)
+using namespace std; 
+int main() 
+{ 
+ 	int a[50],c=0,i,n,c1,n1,j,k,b[10],re=0,r,max;  	float mean=0,median=0; 
+ 	cout<<"\nenter the no of elements in an array : "; 
+ 	cin>>n; 
+ 	for(i=0;i<n;i++){  	 	cout<<"\nenter the element "<<i+1<<" : "; 
+ 	 	cin>>a[i];  	 	mean+=a[i]; 
+ 	} 
+ 	for(i=0;i<n;i++){  	 	for(j=i+1;j<n;j++){ k=a[i]; 
+	 	a[i]=a[j]; 
+	 	 	a[j]=k; 
+	 	} 
+ 	} 
+ 	cout<<"\nmean : "<<mean/n;  	if(n%2!=0){ 
+ 	 	n1=n/2; 
+ 	 	cout<<"\nmedian : "<<a[n1+1]<<"\n"; 
+ 	} 
+ 	else{ 
+ 	 	n1=n/2; 
+ 	 	median=(a[n1]+a[n1-1])/2;  	 	cout<<"\nmedian : "<<median; 
+ 	} 
+ 	for(i=0;i<n;i++){ 
+ 	 	max=0; 
+ 	 	for(j=i+1;j<n;j++){ 
+ 	 	 	if(a[i]==a[j]) 
+ 	 	 	max++; 
+ 	 	} 
+ 	 	if(max>=1){  	 	 	if(c<max){ 
+ 	 	 	 	c=max; 
+	 	c1=a[i]; 
+	 	} 
+	 	} 
+} 
+ 	cout<<"\nmode : "<<c1;  	return 0; 
+} 
+#include<iostream> (NUM FACTORS)
+using namespace std; 
+int main() 
+{ 	int n,i,j,k;  
+	 	cout<<"\nenter the number : "; 	cin>>n; 
+ 	for(i=1;i<n;i++){ 
+ 	 	if(n%i==0){ 
+ 	 	 	k++; }}
+cout<<"\nnumber of factors : "<<k;  }  
+
+#include<iostream>(LEAP YEAR)
+using namespace std;
+int main() {int year;
+cout<<"Enter year : ";
+cin>>year;
+if(year==0)
+ cout<<"invalid input!!";
+else if(year % 400 == 0)
+ cout << year << " is a Leap Year";
+ else if(year % 4 == 0 && year % 100 != 0)
+ cout << year << " is a Leap Year";
+ else
+ cout << year << " is not a Leap Year";
+ return 0;}
+
+#include <iostream>(EMPLOYEE BONUS)
+using namespace std;
+class Person {
+protected:
+    string name;
+    int age;
+public:
+    virtual void getData() {
+        cout << "Enter name: ";
+        cin >> name;
+        cout << "Enter age: ";
+        cin >> age;
+    }
+    virtual void displayData() const {
+        cout << "Name: " << name << ", Age: " << age;
+    }
+    virtual float calculateBonus() const {
+        return 0.0; // Base class bonus is zero
+    }
+};
+class Employee : public Person {
+protected:
+    float bonus;
+public:
+    virtual void getData() override {
+        Person::getData();
+        cout << "Enter bonus: ";
+        cin >> bonus;
+    }
+    virtual void displayData() const override {
+        Person::displayData();
+        cout << ", Bonus: " << bonus;
+    }
+    virtual float calculateBonus() const override {
+        return bonus;
+    }
+};
+class Admin : public Employee {
+public:
+    void getData() override {
+        Employee::getData();
+    }
+    void displayData() const override {
+        cout << "\nAdmin Details: ";
+        Employee::displayData();
+    }
+};
+class Account : public Employee {
+public:
+    void getData() override {
+        Employee::getData();
+    }
+    void displayData() const override {
+        cout << "\nAccount Details: ";
+        Employee::displayData();
+    }
+};
+class Master : public Admin, public Account {
+public:
+    void getData() override {
+        Admin::getData();
+        Account::getData();
+    }
+    void displayData() const override {
+        cout << "\nMaster Details: ";
+        Admin::displayData();
+        cout << "\n";
+        Account::displayData();
+    }
+    float calculateBonus() const override {
+        return Admin::calculateBonus() + Account::calculateBonus();
+    }
+};
+int main() {
+    Master masterEmployee;
+    masterEmployee.getData();
+    cout << "\nEmployee Information:\n";
+    masterEmployee.displayData();
+    cout << "\nTotal Bonus: " << masterEmployee.calculateBonus() << "\n";
+    return 0;
+}
+#include <iostream>(aAREA AND VOLUME)
+using namespace std;
+class Shape {
+public:
+    virtual void calculateArea() const = 0;};
+class Rectangle : public Shape {
+protected:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+    void calculateArea() const override {
+        double area = length * width;
+       cout << "Area of Rectangle: " << area <<endl;
+    }
+};
+class Cuboid : public Rectangle {
+protected:
+    double height;
+public:
+    Cuboid(double l, double w, double h) : Rectangle(l, w), height(h) {}
+
+    void calculateArea() const override {
+        double area = 2 * (length * width + length * height + width * height);
+       cout << "Surface Area of Cuboid: " << area << std::endl;
+    }
+    void calculateVolume() const {
+        double volume = length * width * height;
+       cout << "Volume of Cuboid: " << volume <<endl;
+    }
+};
+int main() {
+    Rectangle rectangle(5.0, 3.0);
+    rectangle.calculateArea();
+    Cuboid cuboid(4.0, 3.0, 2.0);
+    cuboid.calculateArea();
+    cuboid.calculateVolume();}
+
+#include<iostream>(alphabetical order Ascending or Descending)
+#include<string.h>
+#include<stdio.h>
+using namespace std;
+int main(){
+        char str[5][20], t[20];
+        int i, j;
+        cout<<"\n Enter Any Five Names : \n\n";
+        for(i=0; i<5; i++) {
+                cout<<" ";
+                cin>>str[i];}
+        for(i=1; i<5; i++){
+                for(j=1; j<5; j++) {
+                        if(strcmp(str[j-1], str[j])>0){
+                                strcpy(t, str[j-1]);
+                                strcpy(str[j-1], str[j]);
+                                strcpy(str[j], t);}}}            
+        cout<<"\n Names Sorted in Alphabetical Order : \n\n";
+        for(i=0; i<5; i++) {
+                cout<<" ";
+                cout<<str[i]<<"\n";}}
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    long factorial = 1.0;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    if (n < 0)
+        cout << "Error! Factorial of a negative number doesn't exist.";
+        else {
+        for(int i = 1; i <= n; ++i) {
+            factorial *= i;}
+        cout << "Factorial of " << n << " = " << factorial; }}   
+#include<iostream>(perfect squares)
+#include<math.h>
+using namespace std;
+int main()
+{ int range1,range2;
+    cout<<"Enter a range:";
+    cin>>range1>>range2;
+    int count=0;
+    cout<<"Perfect numbers between "<<range1<<" and "<<range2<<" are: ";
+    for(int i=range1;i<=range2;i++) {
+    double sqr=sqrt(i);
+   if(sqr-floor(sqr)==0)
+     cout<<i<<" ";}}
+#include <iostream>(Nth largest)
+using namespace std;
+int main() {
+int i, n;
+  float arr[100];
+ cout << "Enter total number of elements(1 to 100): ";
+  cin >> n;
+  cout << endl;
+   for(i = 0; i < n; ++i) {
+    cout << "Enter Number " << i + 1 << " : ";
+    cin >> arr[i];}
+  for(i = 1;i < n; ++i) {
+  if(arr[0] < arr[i])
+      arr[0] = arr[i]; }
+cout << endl << "Largest element = " << arr[0];}
+#include<iostream>(TV QUESTION)
+using namespace std;
+int main() {
+    const int numModels = 5;
+    const int numBoxes = 5;
+    string tvModels[numModels] = {"TV-LCD 17", "TV-LCD 22", "TV-LCD 26", "TV-LCD 32", "TV-LCD 37"};
+    int boxTypes[numModels] = {1, 2, 3, 4, 2};
+    int numBoxesRequired[numModels];
+    cout << "Enter the number of boxes required for each TV model:\n";
+    for (int i = 0; i < numModels; i++) {
+        cout << tvModels[i] << ": ";
+        cin >> numBoxesRequired[i];}
+    cout << "\nRequisition Note:\n";
+    cout << "--------------------------------------\n";
+    cout << "TV Model\t|\tBox Type\t|\tNumber of Boxes\n";
+    cout << "--------------------------------------\n";
+    for (int i = 0; i < numModels; i++) {
+        cout << tvModels[i] << "\t|\t" << boxTypes[i] << "\t\t|\t" << numBoxesRequired[i] << "\n";}}
+#include <iostream>(PATTERN)
+using namespace std;
+int main()
+{int rows, num = 1;
+cout<< "Enter number of rows: ";
+cin>>rows;
+for(int i = 1; i<= rows; i++) {
+for(int j = 1; j <= i; j++){
+cout<<num*num*num<< " ";
+num++; }
+cout<<endl;}}
+#include <iostream>(PLAYING ONLINE GAME)
+using namespace std;
+void swap(int *a, int *b);
+void segregateEvenOdd(int arr[], int size){
+	int left = 0, right = size-1;
+	while (left < right){
+		while (arr[left] % 2 == 0 && left < right)
+			left++;
+		while (arr[right] % 2 == 1 && left < right)
+			right--;
+		if (left < right){
+			swap(&arr[left], &arr[right]);
+			left++;
+			right--;}}}
+void swap(int *a, int *b){
+	int temp = *a;
+	*a = *b;
+	*b = temp;}
+int main(){
+	int arr[] = {12, 34, 45, 9, 8, 90, 3};
+	int arr_size = sizeof(arr)/sizeof(arr[0]);
+	int i = 0;
+	segregateEvenOdd(arr, arr_size);
+	cout<<"Array after segregation ";
+	for (i = 0; i<arr_size; i++)
+		cout<<arr[i] << " ";}
+  
+  #include <iostream>(locations at which a particular)
+#include <vector>
+using namespace std;
+int main() {
+    vector<int> arr;
+    int n, element;
+    cout << "Enter the number of elements: ";
+   cin >> n;
+  cout << "Enter the elements:\n";
+    for (int i = 0; i < n; ++i) {
+        int num;
+        cin >> num;
+        arr.push_back(num); }
+   cout << "Enter the element to search: ";
+   cin >> element;
+    int count = 0;
+  cout << element << " is present at location ";
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] == element) {
+           cout << i + 1 << " ";
+            ++count;}}
+    std::cout << "\n" << element << " is present " << count << " times in the array.\n";}
+    #include <iostream>(ARMSTRONG)
+using namespace std;
+int main() {
+    int num, originalNum, remainder, result = 0;
+cout<< "Enter a three-digit integer: ";
+cin>>num;
+originalNum = num;
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        result += remainder * remainder * remainder;
+originalNum /= 10;}
+    if (result == num)
+cout<<num<< " is an Armstrong number.";
+    else 
+cout<<num<< " is not an Armstrong number.";}
+
+#include<iostream>(MIN AND MAX)
+using namespace std;
+int main(){
+ int a[20],i,j,n,x,y,temp,diff,sum;
+ cout<<"enter the no of elements: ";
+ cin>>n;
+ cout<<"enter the elements";
+ for(i=1;i<=n;i++){
+    cin>>a[i];}
+ cout<<"enter the mth maximum value: ";
+ cin>>x;
+ cout<<"enter the nth minimum value: ";
+ cin>>y;
+ if(x<0||y<0||x>n||y>n){
+ 	cout<<"invalid input";}
+ else{
+ for(i=1;i<=n-1;i++) {
+  for(j=i+1;j<=n;j++){
+   if(a[i]>a[j]) {
+    temp=a[i];
+    a[i]=a[j];
+    a[j]=temp;}}}
+ sum=a[n-(x-1)]+a[y];
+ diff=a[n-(x-1)]-a[y];
+ cout<<"the maximum element is "<<a[n-(x-1)]<<"\n";
+ cout<<"the minimum element is "<<a[y]<<"\n";
+ cout<<"the sum of maximum and minimum is "<<sum<<"\n";
+ cout<<"the difference of maximum and minimum is "<<diff<<"\n";}}
+ 
+ #include<iostream>(FIBNOCCI)
+using namespace std;
+class Series {
+private:
+    int number;
+public:
+    void input() {
+        cout << "Enter a number: ";
+        cin >> number; }
+    void show() {
+        int a = 0, b = 1, nextTerm;
+        cout << "Fibonacci Series up to " << number << " terms:\n";
+        for (int i = 0; i < number; ++i) {
+            cout << a << " ";
+            nextTerm = a + b;
+            a = b;
+            b = nextTerm;}
+        cout << "\n";}};
+int main() {
+    Series fibonacciSeries;
+    fibonacciSeries.input();
+    fibonacciSeries.show();
+}
+#include <iostream>(SPECIAL CHAR)
+using namespace std;
+void charCheck(char input_char)
+{
+    if ((input_char >= 65 && input_char <= 90) ||
+        (input_char >= 97 && input_char <= 122))
+        cout << " Alphabet ";
+    else if (input_char >= 48 && input_char <= 57)
+        cout << " Digit ";
+    else
+        cout << " Special Character ";}
+int main(){
+    char input_char;
+    cout << "Enter a character: ";
+    cin >> input_char;
+    charCheck(input_char);}
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
